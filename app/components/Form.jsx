@@ -5,6 +5,7 @@ import moment from "moment";
 import { useRecoilState } from "recoil";
 import { formSignsCounter } from "../atoms/taskList";
 import { Button, Text } from "rebass";
+import { fetchTodoList } from "../api/fetchData";
 
 const Form = () => {
   const [taskTitle, setTaskTitle] = useState("");
@@ -18,7 +19,6 @@ const Form = () => {
     if (event.target.value.length >= 80) return;
     setTaskTitle(event.target.value);
   };
-
   const handleSubmit = async () => {
     if (taskTitle === "") {
       setIsInputEmpty(true);
@@ -44,6 +44,7 @@ const Form = () => {
         },
         body: JSON.stringify(newTask),
       });
+      setTasksList(await fetchTodoList());
     } catch (error) {
       console.log(error);
     }
