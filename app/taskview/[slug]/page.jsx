@@ -27,7 +27,6 @@ const TodoItem = () => {
       );
       const data = await response.json();
       setTasksList(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
