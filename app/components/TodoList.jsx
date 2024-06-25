@@ -105,7 +105,7 @@ const TodoList = () => {
                         : `bg-green-800`
                     }`}
                   >
-                    <Text className="text-wrap text-sm max-w-[130px]" color={white}>
+                    <Text className="text-wrap text-sm max-w-[130px]" color="white">
                       {task.title}
                     </Text>
 
