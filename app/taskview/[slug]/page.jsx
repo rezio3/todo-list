@@ -7,33 +7,17 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import "../../style/button.css";
 import { Button } from "rebass";
+import { fetchTodoList } from "@/app/api/fetchData";
 
 const TodoItem = () => {
   const [tasksList, setTasksList] = useRecoilState(tasksListAtom);
 
-  const fetchTodoList = async () => {
-    try {
-      const response = await fetch(
-        "https://gorest.co.in/public/v2/users/6940135/todos?page=1&per_page=100",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Pagination-Limit": 100,
-            Authorization:
-              "Bearer b983d32020827112aaaeb8065fe3eb0a21e82fd379111b09c5adaec78c4af5aa",
-          },
-        }
-      );
-      const data = await response.json();
-      setTasksList(data);
-    } catch (error) {
-      console.log(error);
-    }
+  const fetchData = async () => {
+    setTasksList(await fetchTodoList());
   };
   useEffect(() => {
     if (tasksList.length === 0) {
-      fetchTodoList();
+      fetchData();
     }
   }, []);
 
@@ -47,11 +31,7 @@ const TodoItem = () => {
   return (
     <div className="m-24 p-4 bg-gray-800 w-[400px] h-[600px]">
       <>
-        <Button
-          onClick={backHandler}
-          className="bg-gray-600 btn"
-          mb={3}
-        >
+        <Button onClick={backHandler} className="bg-gray-600 btn" mb={3}>
           Back
         </Button>
         <h3 className="text-lg">Task</h3>
