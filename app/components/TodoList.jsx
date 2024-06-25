@@ -78,8 +78,8 @@ const TodoList = () => {
           Task List
         </Heading>
         <div className="flex flex-col">
-          <Text>Pending: {tasksList.length - completedTaskCount}</Text>
-          <Text>Completed: {completedTaskCount}</Text>
+          <Text color="white">Pending: {tasksList.length - completedTaskCount}</Text>
+          <Text color="white">Completed: {completedTaskCount}</Text>
         </div>
       </div>
       <div className="w-full mb-4">
@@ -105,7 +105,10 @@ const TodoList = () => {
                         : `bg-green-800`
                     }`}
                   >
-                    <Text className="text-wrap text-sm max-w-[130px]" color="white">
+                    <Text
+                      className="text-wrap text-sm max-w-[130px]"
+                      color="white"
+                    >
                       {task.title}
                     </Text>
 
