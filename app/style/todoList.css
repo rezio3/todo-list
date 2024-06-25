@@ -1,0 +1,16 @@
+.task-item {
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.task-item:hover {
+  background-color: #2b3744;
+}
+
+.done-button:hover {
+  color: rgb(62, 223, 62);
+}
+
+.delete-button:hover {
+  color: rgb(170, 0, 0);
+}

@@ -1,10 +1,10 @@
 "use client";
 
-import TodoList from "./components/TodoList";
-import Form from "./components/Form";
+import TodoList from "../components/TodoList";
+import Form from "../components/Form";
 import React from "react";
 
-export default function Home() {
+const TaskView = () => {
   return (
     <main className="flex min-h-screen flex-row p-24">
       <div>
@@ -15,4 +15,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default TaskView;
